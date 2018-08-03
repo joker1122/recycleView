@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">recycleView</string>
+
+
+    <string name="add_item">Add</string>
+    <string name="delete_item">Delete</string>
+    <string name="flush_item">Flush</string>
+
+    <dimen name="button_height">60dp</dimen>
+
+    <dimen name="item_width">50dp</dimen>
+    <dimen name="item_height">60dp</dimen>
+</resources>
