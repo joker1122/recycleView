@@ -15,8 +15,8 @@ public class Presenter implements BasePresenter, CallBack {
     private BaseView mView;
     private BaseModel mBaseModel;
 
-    public Presenter() {
-        mBaseModel = new Model();
+    public Presenter(Context context) {
+        mBaseModel = new Model(context);
     }
 
     @Override
@@ -29,20 +29,42 @@ public class Presenter implements BasePresenter, CallBack {
         return mView;
     }
 
+    @Override
     public void addItem() {
-
-    }
-
-    public void deleteItem() {
-
-    }
-
-    public void flushItem(Context context) {
-        mBaseModel.doInBackground(context, this);
+        mBaseModel.addItem();
+        mView.addItem();
     }
 
     @Override
-    public void callback(ArrayList<ItemData> itemData) {
-        mView.reflush(itemData);
+    public void addItem(int position) {
+        mBaseModel.addItem(position);
+        mView.addItem(position);
+    }
+
+    @Override
+    public void deleteItem() {
+        mBaseModel.deleteItem();
+        mView.deleteItem();
+    }
+
+    @Override
+    public void deleteItem(int position) {
+        mBaseModel.deleteItem(position);
+        mView.deleteItem(position);
+    }
+
+    @Override
+    public void flushItem() {
+        mBaseModel.doInBackground(this);
+    }
+
+    @Override
+    public void callback() {
+        mView.reflush();
+    }
+
+    @Override
+    public ArrayList<ItemData> getItemData() {
+        return mBaseModel.getItemDate();
     }
 }

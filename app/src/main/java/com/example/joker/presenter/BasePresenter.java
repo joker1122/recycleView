@@ -1,11 +1,25 @@
 package com.example.joker.presenter;
 
 
-import com.example.joker.model.BaseModel;
+import com.example.joker.data.ItemData;
 import com.example.joker.recycleview.BaseView;
 
-public interface BasePresenter<M extends BaseModel, V extends BaseView> {
-    void attachView(V view);
+import java.util.ArrayList;
+
+public interface BasePresenter {
+    void attachView(BaseView view);
 
     BaseView getView();
+
+    void addItem();
+
+    void addItem(int position);
+
+    void deleteItem();
+
+    void deleteItem(int position);
+
+    void flushItem();
+
+    ArrayList<ItemData> getItemData();
 }

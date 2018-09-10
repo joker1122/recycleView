@@ -9,5 +9,10 @@ public interface BaseView {
 
     void deleteItem();
 
-    void reflush(ArrayList<ItemData> itemData);
+
+    void addItem(int position);
+
+    void deleteItem(int position);
+
+    void reflush();
 }
